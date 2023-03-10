@@ -1,0 +1,19 @@
+service: ExampleAPI
+frameworkVersion: '3'
+
+plugins:
+  - serverless-plugin-include-dependencies
+  - serverless-plugin-typescript
+
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - httpApi:
+          path: /
+          method: get
